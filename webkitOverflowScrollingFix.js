@@ -36,12 +36,14 @@
 				// call it now to fix before any scroll events occure
 				if ( 'add' == what ) eventHandler({target: node})
 			}
+			// true if anything is handled
+			return !!nodes.length
 		}
 	}
 
 	var e = {
-		add: function(nodes, handler) { fix(nodes, 'add', handler) }
-	,	remove: function(nodes, handler) { fix(nodes, 'remove', handler) }
+		add: function(nodes, handler) { return fix(nodes, 'add', handler) }
+	,	remove: function(nodes, handler) { return fix(nodes, 'remove', handler) }
 	,	eventHandler: eventHandler
 	}
 
